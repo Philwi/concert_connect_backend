@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_12_112425) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_10_145409) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,6 +47,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_12_112425) do
     t.text "content_raw"
     t.text "content"
     t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "concerts", force: :cascade do |t|
+    t.datetime "date", null: false
+    t.float "price"
+    t.string "bands", default: [], array: true
+    t.string "city", null: false
+    t.string "country", null: false
+    t.string "description"
+    t.string "genres", default: [], array: true
+    t.string "venue", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

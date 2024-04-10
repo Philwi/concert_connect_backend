@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rails7. StartKit. By Ilya N. Zykin</title>
+    <title>Concerts</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://unpkg.com/htmx.org@1.9.11" integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0" crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= javascript_importmap_tags("importmap/application") %>
-
-    <%= stylesheet_link_tag "sprockets/application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "sprockets/application", "data-turbo-track": "reload", defer: true %>
+    <%= stylesheet_link_tag "sprockets/application" %>
   </head>
 
   <body>
