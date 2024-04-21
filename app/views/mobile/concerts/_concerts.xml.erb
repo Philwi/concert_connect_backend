@@ -1,0 +1,36 @@
+<items xmlns="https://hyperview.org/hyperview">
+  <% @current_date = nil %>
+  <%- @concerts.each do |concert| %>
+    <% if @current_date != "#{concert.date.day}-#{concert.date.month}-#{concert.date.year}" %>
+      <item style="ItemDelimiter" key="date_<%= concert.date %>">
+        <text style="Item__Label">
+          <%= I18n.l(concert.date, format: "%d %B") %>
+        </text>
+      </item>
+      <%- @current_date = "#{concert.date.day}-#{concert.date.month}-#{concert.date.year}" %>
+    <% end %>
+    <item style="Item" key="<%= concert.id %>">
+      <text style="Item__Label">
+        <%= concert.city %> - <%= concert.bands.join(", ") %>
+      </text>
+    </item>
+  <% end %>
+  <% if @concerts.length > 0 %>
+    <item
+      style="Spinner"
+      key="loadMore"
+      trigger="visible"
+      once="true"
+      href="<%= mobile_concerts_path(page: @page.to_i + 1, rows_only: true) %>"
+      action="replace"
+      >
+      <spinner />
+    </item>
+  <% else %>
+    <item style="Item" key="noResults">
+      <text style="Item__Label">
+        <%= t("concerts.no_results") %>
+      </text>
+    </item>
+  <% end %>
+</items>

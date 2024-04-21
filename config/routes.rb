@@ -4,13 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  root 'demo#index'
-  get  '/tools', to: 'demo#tools'
-
-  get '/articles_list', to: 'demo#articles_list'
-  get '/articles_cache', to: 'demo#articles_cache'
-  get '/articles_search', to: 'demo#articles_search'
+  root to: redirect('/mobile/concerts', status: 302)
+  namespace :mobile do
+    resources :concerts
+  end
 
   resource :user, only: [:update] do
     get :profile

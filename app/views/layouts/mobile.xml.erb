@@ -1,0 +1,22 @@
+<doc xmlns="https://hyperview.org/hyperview">
+  <screen>
+    <styles>
+      <%# Body Styles %>
+      <style id="Body" backgroundColor="white" flex="1" padding="48" />
+      <style id="Content" paddingTop="8" />
+      <%# Header Styles %>
+      <style id="Label" fontSize="18" lineHeight="24" />
+      <style id="Label--Link" color="blue" fontSize="18" />
+      <style id="Header" backgroundColor="white" flexDirection="row" justifyContent="flex-end" paddingBottom="16" borderBottomWidth="1" />
+      <%# Custom Page Styles %>
+      <%= yield :style %>
+    </styles>
+    <body style="Body" scroll="true">
+      <%= render partial: 'layouts/mobile_header' %>
+      <view style="Content">
+        <%= yield %>
+      </view>
+    </body>
+  </screen>
+</doc>
+

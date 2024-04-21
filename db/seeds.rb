@@ -12,3 +12,18 @@
 
 seeds_file = Rails.root.join('db', 'seeds', "#{Rails.env.downcase}.rb")
 File.exist?(seeds_file) && load(seeds_file)
+
+if Concert.count.zero?
+  10.times do |i|
+    Concert.create(
+      date: Time.zone.now + i.days,
+      price: Faker::Number.decimal(l_digits: 2),
+      bands: [Faker::Music.band, Faker::Music.band],
+      city: Faker::Address.city,
+      country: Faker::Address.country,
+      description: Faker::Lorem.paragraph,
+      genres: [Faker::Music.genre, Faker::Music.genre],
+      venue: Faker::Music.album
+    )
+  end
+end
