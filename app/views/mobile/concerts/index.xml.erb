@@ -3,35 +3,49 @@
     id="Headline"
     fontSize="24"
     fontWeight="bold"
-    marginBottom="24"
     marginTop="24"
     paddingRight="24"
+    paddingBottom="12"
+    color="black"
+    borderBottomWidth="1"
+    borderBottomColor="black"
   />
   <style
     id="Item"
     alignItems="center"
-    borderBottomColor="#eee"
-    borderBottomWidth="1"
+    borderBottomColor="black"
+    backgroundColor="black"
+    borderWidth="1"
     flex="1"
-    flexDirection="row"
-    height="48"
-    justifyContent="space-between"
-    paddingRight="24"
-    paddingBottom="12"
-    paddingTop="12"
-
+    height="96"
+    padding="24"
+    marginBottom="12"
   />
   <style
-    id="ItemDelimiter"
+    id="Item__Label--main"
+    color="#eab308"
+    fontSize="18"
+    fontWeight="bold"
+    alignSelf="flex-start"
+  />
+  <style
+    id="Item__Label--sub"
+    color="#eab308"
+    fontSize="14"
+    alignSelf="flex-start"
+  />
+  <style
+    id="Item__Delimiter"
     paddingRight="24"
     paddingBottom="12"
     paddingTop="12"
-    fontSize="24"
-    fontWeight="bold"
-    backgroundColor="#eee"
-    color="000"
-    alignItems="center"
   />
+  <style
+    id="concert-list"
+    paddingBottom="24"
+    marginBottom="24"
+  />
+  <style id="Item__Delimiter__Label" fontSize="24" fontWeight="bold" />
   <style id="Item__Label" fontSize="18" />
   <style id="Item__Label--small" fontSize="14" color="#666" />
   <style
@@ -52,7 +66,7 @@
   href="<%= mobile_concerts_path(rows_only: true) %>"
   target="concert-list"
   action="replace-inner"
-  >
+>
   <%= render partial: 'concerts', locals: { concerts: @concerts, page: @page } %>
 </list>
 

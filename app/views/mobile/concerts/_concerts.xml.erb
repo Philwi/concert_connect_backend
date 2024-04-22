@@ -2,16 +2,19 @@
   <% @current_date = nil %>
   <%- @concerts.each do |concert| %>
     <% if @current_date != "#{concert.date.day}-#{concert.date.month}-#{concert.date.year}" %>
-      <item style="ItemDelimiter" key="date_<%= concert.date %>">
-        <text style="Item__Label">
+      <item style="Item__Delimiter" key="date_<%= concert.date %>">
+        <text style="Item__Delimiter__Label">
           <%= I18n.l(concert.date, format: "%d %B") %>
         </text>
       </item>
       <%- @current_date = "#{concert.date.day}-#{concert.date.month}-#{concert.date.year}" %>
     <% end %>
     <item style="Item" key="<%= concert.id %>">
-      <text style="Item__Label">
-        <%= concert.city %> - <%= concert.bands.join(", ") %>
+      <text style="Item__Label--main">
+        <%= concert.city %>
+      </text>
+      <text style="Item__Label--sub">
+        <%= concert.bands.join(", ") %>
       </text>
     </item>
   <% end %>
