@@ -2,34 +2,9 @@
   <screen>
     <styles>
       <%# Body Styles %>
-      <style id="Body" backgroundColor="black" flex="1" />
-      <style
-        id="Content"
-        paddingTop="8"
-        paddingLeft="24"
-        paddingRight="24"
-        paddingBottom="176"
-        backgroundColor="#eab308"
-      />
+      <%= render partial: "shared/mobile/styles/main_application_styles" %>
       <%# Header Styles %>
-      <style id="Label" fontSize="18" lineHeight="24" />
-      <style
-        id="Header"
-        backgroundColor="black"
-        flexDirection="row"
-        flex="1"
-        flexWrap="wrap"
-        paddingBottom="16"
-        borderBottomWidth="1"
-        justifyContent="space-between"
-        paddingTop="36"
-        paddingLeft="24"
-        paddingRight="24"
-        marginBottom="64"
-      />
-      <style id="Header__text" color="#eab308" fontSize="24" fontWeight="bold" paddingRight="8" />
-      <style id="Header__logo" height="64" width="64" />
-      <style id="Header__menu" height="64" width="64" />
+      <%= render partial: "shared/mobile/styles/header_styles" %>
       <%# Custom Page Styles %>
       <%= yield :style %>
     </styles>

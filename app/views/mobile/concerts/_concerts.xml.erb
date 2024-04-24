@@ -9,13 +9,21 @@
       </item>
       <%- @current_date = "#{concert.date.day}-#{concert.date.month}-#{concert.date.year}" %>
     <% end %>
-    <item style="Item" key="<%= concert.id %>">
-      <text style="Item__Label--main">
-        <%= concert.city %>
-      </text>
-      <text style="Item__Label--sub">
-        <%= concert.bands.join(", ") %>
-      </text>
+      <item style="Item" key="<%= concert.id %>">
+      <view>
+        <text style="Item__Label--main">
+          <%= concert.bands.join(", ") %>
+        </text>
+        <text style="Item__Label--sub">
+          City: <%= concert.city %>
+        </text>
+        <text style="Item__Label--sub">
+          Location: <%= concert.venue %>
+        </text>
+      </view>
+      <view>
+        <image style="Item__Navigation" source="<%= image_path('icons/right-button') %>" href="<%= mobile_concert_path(concert) %>" />
+      </view>
     </item>
   <% end %>
   <% if @concerts.length > 0 %>

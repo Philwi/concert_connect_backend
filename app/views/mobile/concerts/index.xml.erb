@@ -6,33 +6,36 @@
     marginTop="24"
     paddingRight="24"
     paddingBottom="12"
-    color="black"
+    color="<%= secondary_color_string %>"
     borderBottomWidth="1"
-    borderBottomColor="black"
+    borderBottomColor="<%= secondary_color_string %>"
   />
   <style
     id="Item"
-    alignItems="center"
-    borderBottomColor="black"
-    backgroundColor="black"
+    borderBottomColor="<%= secondary_color_string %>"
+    backgroundColor="<%= secondary_color_string %>"
     borderWidth="1"
     flex="1"
-    height="96"
+    justifyContent="space-between"
+    flexDirection="row"
+    height="128"
     padding="24"
     marginBottom="12"
   />
   <style
     id="Item__Label--main"
-    color="#eab308"
+    color="<%= primary_color_string %>"
     fontSize="18"
     fontWeight="bold"
     alignSelf="flex-start"
+    maxWidth="256"
   />
   <style
     id="Item__Label--sub"
-    color="#eab308"
+    color="<%= primary_color_string %>"
     fontSize="14"
     alignSelf="flex-start"
+    maxWidth="256"
   />
   <style
     id="Item__Delimiter"
@@ -41,13 +44,21 @@
     paddingTop="12"
   />
   <style
+    id="Item__Navigation"
+    height="48"
+    width="48"
+    marginVertical="8"
+    alignSelf="center"
+  />
+  <style id="Item__Label__Link" color="<%= link_color_string %>" fontSize="18" />
+  <style
     id="concert-list"
     paddingBottom="24"
     marginBottom="24"
   />
   <style id="Item__Delimiter__Label" fontSize="24" fontWeight="bold" />
   <style id="Item__Label" fontSize="18" />
-  <style id="Item__Label--small" fontSize="14" color="#666" />
+  <style id="Item__Label--small" fontSize="14" color="<%= tertiary_color_string %>" />
   <style
     id="Spinner"
     flex="1"

@@ -1,0 +1,24 @@
+<doc xmlns="https://hyperview.org/hyperview">
+  <screen>
+    <styles>
+      <style id="Body" backgroundColor="<%= primary_color_string %>" flex="1" color="<%= secondary_color_string %>" />
+      <%= render partial: "shared/mobile/styles/main_application_styles" %>
+      <%= render partial: "shared/mobile/styles/header_back_styles" %>
+    </styles>
+    <body style="Body">
+      <view style="Content">
+        <%= render partial: 'shared/mobile/back_header' %>
+        <view>
+          <text style="Title"> Bands: <%= @concert.bands.join(', ') %> </text>
+          <text style="Entry"> Description: <%= @concert.description %> </text>
+          <text style="Entry"> Date: <%= I18n.l(@concert.date, format: :short) %> </text>
+          <text style="Entry"> Venue: <%= @concert.venue %> </text>
+          <text style="Entry"> City: <%= @concert.city %> </text>
+          <text style="Entry"> Country: <%= @concert.country %> </text>
+          <text style="Entry"> Price: <%= @concert.price %> </text>
+          <text style="Entry"> Genres: <%= @concert.genres.join(', ') %> </text>
+        </view>
+      </view>
+    </body>
+  </screen>
+</doc>
