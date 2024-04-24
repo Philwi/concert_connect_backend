@@ -13,4 +13,9 @@ class Mobile::ConcertsController < MobileController
     @concert = Concert.find(params[:id])
     render layout: false
   end
+
+  def image
+    @concert = Concert.find(params[:id])
+    render layout: false
+  end
 end

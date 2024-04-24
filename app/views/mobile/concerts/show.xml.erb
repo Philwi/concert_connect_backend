@@ -4,21 +4,65 @@
       <style id="Body" backgroundColor="<%= primary_color_string %>" flex="1" color="<%= secondary_color_string %>" />
       <%= render partial: "shared/mobile/styles/main_application_styles" %>
       <%= render partial: "shared/mobile/styles/header_back_styles" %>
+      <style id="Concert__Card" />
+      <style id="Concert__Card__Content" />
+      <style id="Concert__Card__Title" fontSize="24" fontWeight="bold" alignSelf="center" />
+      <style id="Concert__Card__Subtitle" fontSize="16" alignSelf="center" maxWidth="320" paddingVertical="8" />
+      <style id="Concert__Card__Entry"  paddingHorizontal="42" lineHeight="24" flexDirection="row" />
+      <style id="Concert__Card__Label" fontWeight="bold" fontSize="16" width="80" />
+      <style id="Concert__Card__Value" paddingLeft="8" fontSize="16" maxWidth="220" />
+      <style id="Concert__Image" width="256" height="256" alignSelf="center" borderRadius="10%" />
+      <style
+        id="Concert__Footer"
+        flexDirection="row"
+        justifyContent="space-between"
+        paddingHorizontal="42"
+        height="92"
+        width="100%"
+        position="absolute"
+        bottom="0"
+        backgroundColor="<%= secondary_color_string %>"
+      />
+      <style id="Concert__Footer__Text" fontSize="24" alignSelf="center" color="<%= primary_color_string %>" />
     </styles>
     <body style="Body">
       <view style="Content">
         <%= render partial: 'shared/mobile/back_header' %>
-        <view>
-          <text style="Title"> Bands: <%= @concert.bands.join(', ') %> </text>
-          <text style="Entry"> Description: <%= @concert.description %> </text>
-          <text style="Entry"> Date: <%= I18n.l(@concert.date, format: :short) %> </text>
-          <text style="Entry"> Venue: <%= @concert.venue %> </text>
-          <text style="Entry"> City: <%= @concert.city %> </text>
-          <text style="Entry"> Country: <%= @concert.country %> </text>
-          <text style="Entry"> Price: <%= @concert.price %> </text>
-          <text style="Entry"> Genres: <%= @concert.genres.join(', ') %> </text>
+        <view style="Concert__Card">
+          <image source="<%= image_path('default_concert_image') %>" href="<%= image_mobile_concert_path(@concert) %>" style="Concert__Image" />
+          <view style="Concert__Card__Content">
+            <text style="Concert__Card__Title"> <%= @concert.bands.join(', ') %> </text>
+            <text style="Concert__Card__Subtitle"> <%= @concert.description %> </text>
+            <view style="Concert__Card__Entry">
+              <text style="Concert__Card__Label"> Date: </text>
+              <text style="Concert__Card__Value"> <%= I18n.l(@concert.date, format: :short) %> </text>
+            </view>
+            <view style="Concert__Card__Entry">
+              <text style="Concert__Card__Label"> Venue: </text>
+              <text style="Concert__Card__Value"> <%= @concert.venue %> </text>
+            </view>
+            <view style="Concert__Card__Entry">
+              <text style="Concert__Card__Label"> City: </text>
+              <text style="Concert__Card__Value"> <%= @concert.city %> </text>
+            </view>
+            <view style="Concert__Card__Entry">
+              <text style="Concert__Card__Label"> Country: </text>
+              <text style="Concert__Card__Value"> <%= @concert.country %> </text>
+            </view>
+            <view style="Concert__Card__Entry">
+              <text style="Concert__Card__Label"> Price: </text>
+              <text style="Concert__Card__Value"> <%= @concert.price %> </text>
+            </view>
+            <view style="Concert__Card__Entry">
+              <text style="Concert__Card__Label"> Genres: </text>
+              <text style="Concert__Card__Value"> <%= @concert.genres.join(', ') %> </text>
+            </view>
+          </view>
         </view>
+      </view>
+      <view style="Concert__Footer">
+        <text style="Concert__Footer__Text" href="#"> Like </text>
       </view>
     </body>
   </screen>
-</doc>
+</docalignContent="center">

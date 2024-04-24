@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   root to: redirect('/mobile/concerts', status: 302)
   namespace :mobile do
-    resources :concerts
+    resources :concerts do
+      member do
+        get :image
+      end
+    end
   end
 
   resource :user, only: [:update] do
